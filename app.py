@@ -5,7 +5,7 @@
 
 
 from flask import Flask, request, render_template_string
-from flask_ngrok import run_with_ngrok
+# from flask_ngrok import run_with_ngrok
 import transformers
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
 import pyttsx3
