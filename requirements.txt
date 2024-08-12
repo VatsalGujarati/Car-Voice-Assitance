@@ -15,3 +15,4 @@ matplotlib==3.8.0       # For any plotting needs, can be removed if not crucial
 seaborn==0.12.2         # Built on matplotlib, can be removed if not crucial
 pyttsx3==2.90
 # torch==1.10.0
+sentencepiece = 0.1.96 
