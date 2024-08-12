@@ -1,11 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 from flask import Flask, request, render_template_string
-# from flask_ngrok import run_with_ngrok
 import transformers
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
 import pyttsx3
@@ -18,16 +14,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Load models and tokenizers
-gpt2_model_name = "gpt2-medium"
+gpt2_model_name = "gpt2"
 translation_model_name = "Helsinki-NLP/opus-mt-en-de"
 
 gpt2_tokenizer = transformers.AutoTokenizer.from_pretrained(gpt2_model_name)
 gpt2_model = transformers.AutoModelForCausalLM.from_pretrained(gpt2_model_name)
 translator_tokenizer = AutoTokenizer.from_pretrained(translation_model_name)
 translator_model = AutoModelForSeq2SeqLM.from_pretrained(translation_model_name)
-
-# NLU pipeline for named entity recognition
-nlp = pipeline("ner", model="dbmdz/bert-large-cased-finetuned-conll03-english")
 
 # Initialize text-to-speech engine
 engine = pyttsx3.init()
@@ -65,7 +58,6 @@ def generate_response(text):
 
 def process_command(text):
     logger.info(f"Processing command: {text}")
-
     text = text.lower()
     if 'play music' in text:
         return play_music()
@@ -122,7 +114,6 @@ def control_windows_or_sunroof(text):
 
 # Flask app setup
 app = Flask(__name__)
-# run_with_ngrok(app)  # Integrate Flask with ngrok
 
 @app.route('/')
 def home():
@@ -229,16 +220,6 @@ def process():
     </html>
     """, response=response, background=background)
 
-# if __name__ == "__main__":
-#     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-
 if __name__ == "__main__":
-    # Use the PORT environment variable provided by Render
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
-# In[ ]:
-
-
-
-
