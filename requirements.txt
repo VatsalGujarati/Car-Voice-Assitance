@@ -3,13 +3,10 @@ gunicorn==20.1.0
 Jinja2==3.1.4
 Werkzeug==3.0.3
 requests==2.32.3
-numpy>=1.21,<1.27     # Avoiding the versions incompatible with your Python version
+numpy>=1.21,<1.27      # Avoids the versions incompatible with your Python version
 pandas==2.1.0
 scikit-learn==1.2.2
-tensorflow==2.17.0    # You can also try tensorflow-cpu if this doesn't work
-torch==2.2.2          # Without the +cpu suffix
-transformers==4.44.0
-spacy==3.7.5
-nltk==3.8.1
-matplotlib==3.8.0
-seaborn==0.12.2
+tensorflow-cpu==2.17.0 # Smaller than the full tensorflow package
+torch==2.2.2           # Without the +cpu suffix
+transformers==4.44.0   # Core transformer library
+nltk==3.8.1            # Only if necessary
