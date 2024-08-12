@@ -122,7 +122,7 @@ def control_windows_or_sunroof(text):
 
 # Flask app setup
 app = Flask(__name__)
-run_with_ngrok(app)  # Integrate Flask with ngrok
+# run_with_ngrok(app)  # Integrate Flask with ngrok
 
 @app.route('/')
 def home():
@@ -229,9 +229,13 @@ def process():
     </html>
     """, response=response, background=background)
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+# if __name__ == "__main__":
+#     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
+if __name__ == "__main__":
+    # Use the PORT environment variable provided by Render
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
 # In[ ]:
 
