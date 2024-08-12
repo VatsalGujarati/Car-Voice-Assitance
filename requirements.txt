@@ -15,6 +15,6 @@ transformers==4.43.0    # Needed for NLP tasks, but consider using smaller model
 # seaborn==0.12.2         # Built on matplotlib, can be removed if not crucial
 pyttsx3==2.90
 torch==2.1.0
-#sentencepiece==0.1.96
-#sacremoses==0.0.53
+sentencepiece==0.1.96
+sacremoses==0.0.53
 
